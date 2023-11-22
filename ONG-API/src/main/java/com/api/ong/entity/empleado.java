@@ -1,6 +1,5 @@
 package com.api.ong.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,41 +8,48 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
 @Entity
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @Table(name = "empleados")
 public class empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo")
-	private Integer codigo;
+	public Integer codigo;
 	@Column(name = "dni")
-	private Integer dni;
+	public Integer dni;
 	@Column(name = "login")
-	private String login;
+	public String login;
 	@Column(name = "contraseña")
-	private String contraseña;
+	public String contraseña;
 
 	@Column(name = "nombre")
-	private String nombre;
+	public String nombre;
 	@Column(name = "paterno")
-	private String paterno;
+	public String paterno;
 	@Column(name = "materno")
-	private String materno;
-	
+	public String materno;
+
 	@Column(name = "telefono")
-	private Integer telefono;
+	public Integer telefono;
 	@Column(name = "correo")
-	private String correo;
+	public String correo;
 	@Column(name = "direccion")
-	private String direccion;
+	public String direccion;
 	@Column(name = "sueldo")
-	private Integer sueldo;
+	public Integer sueldo;
 	@Column(name = "salt")
-	private byte[] salt;
+	public byte[] salt;
 	@ManyToOne
 	@JoinColumn(name = "id_depa")
-	private departamento depa;
+	public departamento depa;
 }
