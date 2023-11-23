@@ -12,18 +12,20 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Data
 @Entity
-@Table(name="especialidades")
+@Data
+@NoArgsConstructor                                                
 public class Especialidades {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idEspecialidades")
-	private Integer codigo;
-	@Column (name = "nombre")
+	private Integer id_Especialidades;
 	private String nombre;
-	@OneToMany(mappedBy ="especialidad")
-	private List<Voluntario> listaVoluntario;
+	/*@OneToMany(mappedBy ="especialidad")
+	@Getter 
+	@Setter
+	private List<Voluntario> listaVoluntario;*/
 }
+

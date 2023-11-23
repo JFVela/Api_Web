@@ -13,22 +13,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "inscripcion")
 @Data
 @NoArgsConstructor
 public class Inscripcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_inscripcion")
-    private Integer codigoInscr;
+    private Integer id_inscripcion;
 
     //Relacion con Voluntario
     @ManyToOne
-    @JoinColumn(name = "voluntario_dni", insertable = false, updatable = false)
+    @JoinColumn(name = "voluntario_dni")
     private Voluntario voluntario;
     // Relación con Eventos
     @ManyToOne
-    @JoinColumn(name = "eventos_id_evento", insertable = false, updatable = false)
+    @JoinColumn(name = "eventos_id_evento")
     private Eventos eventos;
 
     // Constructor vacío generado por Lombok

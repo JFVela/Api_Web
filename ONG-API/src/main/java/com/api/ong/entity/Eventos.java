@@ -13,35 +13,28 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "eventos")
+@NoArgsConstructor
 public class Eventos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_evento")
-	private Integer codigo;
-	@Column(name = "nombre")
+	private Integer id_evento;
     private String nombre;
-	@Column(name = "ubicacion")
 	private String ubicacion;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "inicio_inscripcion")
-	private Date inicioInscripcion;
+	private Date inicio_inscripcion;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "final_inscripcion")
-	private Date finalInscripcion;
+	private Date final_inscripcion;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "inicio")
 	private Date inicio;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "final")
-	private Date finalEvento;
-	@Column(name = "detalle")
+	private Date finalE;
 	private String detalle;
-	@Column(name = "vacantes")
 	private Integer vacantes;
 	@OneToMany(mappedBy = "eventos")
 	private List<Inscripcion> listaInscripcion;
 }
+
