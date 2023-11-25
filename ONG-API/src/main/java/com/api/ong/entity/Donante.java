@@ -1,14 +1,17 @@
 package com.api.ong.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name="donantes")
+@Data
+@NoArgsConstructor
 public class Donante {
 	@Id
-	@Getter @Setter
 	@Column(name = "dni")
 	private Integer dni;
 	@Column(name = "nombre")
@@ -25,9 +28,6 @@ public class Donante {
 	private String distrito;
 	@Column(name = "direccion")
 	private String direccion;
-	public Integer getDni() {
-		return dni;
-	}
 	/*//FORANEA
 	@OneToMany
 	@JoinColumn(name = "idONG")

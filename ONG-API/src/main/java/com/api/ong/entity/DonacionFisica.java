@@ -2,10 +2,12 @@ package com.api.ong.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="donacion_fisica")
 @Data
+@NoArgsConstructor
 public class DonacionFisica {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
