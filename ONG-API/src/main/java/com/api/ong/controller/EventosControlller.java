@@ -12,33 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.ong.entity.Especialidades;
-import com.api.ong.services.EspecialidadServices;
+import com.api.ong.entity.Eventos;
+import com.api.ong.services.EventosServices;
+
+
 
 @RestController
-@RequestMapping("/especialidad")
-public class EspecialidadesController {
+@RequestMapping("/eventos")
+public class EventosControlller {
 	@Autowired
-	private EspecialidadServices servicioEspe;
+	private EventosServices servicioEven;
 	
 	@GetMapping("/lista")
-	public List<Especialidades> lista(){
-		return servicioEspe.listarTodos();
+	public List<Eventos> lista(){
+		return servicioEven.listarTodo();
 	}
+	
 	@PostMapping("/registrar")
-	public void registrar(@RequestBody Especialidades even) {
-		servicioEspe.insertar(even);
+	public void registrar(@RequestBody Eventos even) {
+		servicioEven.insertar(even);
 	}
 	@PutMapping("actualizar")
-	public void actualizar(@RequestBody Especialidades even) {
-		servicioEspe.actualizar(even);
+	public void actualizar(@RequestBody Eventos even) {
+		servicioEven.actualizar(even);
 	}
 	@DeleteMapping("/eliminar({cod}")
 	public void eliminar(@PathVariable("cod")Integer cod) {
-		servicioEspe.eliminar(cod);
+		servicioEven.eliminar(cod);
 	}
 	@GetMapping("/buscar/{cod}")
-	public Especialidades buscar(@PathVariable("cod")Integer cod) {
-		return servicioEspe.buscarId(cod);
+	public Eventos buscar(@PathVariable("cod")Integer cod) {
+		return servicioEven.buscarId(cod);
 	}
 }

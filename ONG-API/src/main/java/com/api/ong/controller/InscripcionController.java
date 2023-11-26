@@ -12,33 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.ong.entity.Especialidades;
-import com.api.ong.services.EspecialidadServices;
+import com.api.ong.entity.Inscripcion;
+import com.api.ong.services.InscripcionServices;
 
 @RestController
-@RequestMapping("/especialidad")
-public class EspecialidadesController {
+@RequestMapping("/inscripcion")
+public class InscripcionController {
 	@Autowired
-	private EspecialidadServices servicioEspe;
+	private InscripcionServices servicioInsc;
 	
 	@GetMapping("/lista")
-	public List<Especialidades> lista(){
-		return servicioEspe.listarTodos();
+	public List<Inscripcion> lista(){
+		return servicioInsc.listarTodo();
 	}
 	@PostMapping("/registrar")
-	public void registrar(@RequestBody Especialidades even) {
-		servicioEspe.insertar(even);
+	public void registrar(@RequestBody Inscripcion even) {
+		servicioInsc.insertar(even);
 	}
 	@PutMapping("actualizar")
-	public void actualizar(@RequestBody Especialidades even) {
-		servicioEspe.actualizar(even);
+	public void actualizar(@RequestBody Inscripcion even) {
+		servicioInsc.actualizar(even);
 	}
 	@DeleteMapping("/eliminar({cod}")
 	public void eliminar(@PathVariable("cod")Integer cod) {
-		servicioEspe.eliminar(cod);
+		servicioInsc.eliminar(cod);
 	}
 	@GetMapping("/buscar/{cod}")
-	public Especialidades buscar(@PathVariable("cod")Integer cod) {
-		return servicioEspe.buscarId(cod);
+	public Inscripcion buscar(@PathVariable("cod")Integer cod) {
+		return servicioInsc.buscarId(cod);
 	}
 }
