@@ -1,5 +1,9 @@
 package com.api.ong.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -28,8 +32,8 @@ public class Donante {
 	private String distrito;
 	@Column(name = "direccion")
 	private String direccion;
-	/*//FORANEA
-	@OneToMany
-	@JoinColumn(name = "idONG")
-	private Ren_vida ong;*/
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "don")
+	private List<DonacionFisica> donf;
 }

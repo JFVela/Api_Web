@@ -1,5 +1,9 @@
 package com.api.ong.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -19,4 +23,8 @@ public class Local {
 	private String nombre;
 	@Column(name="direccion")
 	private String direccion;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "local_don")
+	private List<DonacionFisica> donf;
 }

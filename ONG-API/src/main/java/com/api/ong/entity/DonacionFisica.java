@@ -21,4 +21,10 @@ public class DonacionFisica {
 	private String descripcion;
 	@Column(name="estado")
 	private Boolean estado;	
+	@ManyToOne
+	@JoinColumn(name="donantes_dni")
+	private Donante don ;
+	@ManyToOne
+	@JoinColumn(name="local_donacion_id_local")
+	private Local local_don ;
 }
