@@ -3,6 +3,8 @@ package com.api.ong.entity;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +14,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+@AllArgsConstructor
 @Data
 @Entity
 @NoArgsConstructor
@@ -35,6 +38,7 @@ public class Eventos {
 	private String detalle;
 	private Integer vacantes;
 	@OneToMany(mappedBy = "eventos")
+	@JsonIgnore
 	private List<Inscripcion> listaInscripcion;
 }
 
