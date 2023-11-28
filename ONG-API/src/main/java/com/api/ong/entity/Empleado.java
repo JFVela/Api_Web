@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Table(name = "empleados")
-public class empleado {
+public class Empleado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigo")
@@ -51,5 +51,9 @@ public class empleado {
 	public byte[] salt;
 	@ManyToOne
 	@JoinColumn(name = "id_depa")
-	public departamento depa;
+	public Departamento depa;
+	@ManyToOne
+	@JoinColumn(name = "id_rol")
+	public Rol rol;
+	
 }
