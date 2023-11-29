@@ -34,6 +34,6 @@ public class Donante {
 	private String direccion;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "don")
+	@OneToMany(mappedBy = "donan")
 	private List<DonacionFisica> donf;
 }

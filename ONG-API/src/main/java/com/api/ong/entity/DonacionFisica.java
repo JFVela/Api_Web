@@ -19,7 +19,7 @@ public class DonacionFisica {
 	private Boolean estado;	
 	@ManyToOne
 	@JoinColumn(name="donantes_dni")
-	private Donante don ;
+	private Donante donan ;
 	@ManyToOne
 	@JoinColumn(name="local_donacion_id_local")
 	private Local local_don ;
