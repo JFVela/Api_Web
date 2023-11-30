@@ -36,4 +36,8 @@ public class Donante {
 	@JsonIgnore
 	@OneToMany(mappedBy = "donan")
 	private List<DonacionFisica> donf;
+	
+	@ManyToOne
+	@JoinColumn(name = "idONG")
+	public OngEmpresa ong;
 }

@@ -39,6 +39,10 @@ public class Voluntario {
     @ManyToOne
     @JoinColumn(name = "id_Especialidades")
     public  Especialidades especialidad;
+    
+	@ManyToOne
+	@JoinColumn(name = "idONG")
+	public OngEmpresa ong;
 
 
 }

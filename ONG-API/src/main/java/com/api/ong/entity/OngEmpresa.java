@@ -49,4 +49,5 @@ public class OngEmpresa {
 	@OneToMany(mappedBy = "ong")
 	@JsonIgnore
 	private List<Empleado> listaEmple;
+	
 }
