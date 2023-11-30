@@ -55,5 +55,7 @@ public class Empleado {
 	@ManyToOne
 	@JoinColumn(name = "id_rol")
 	public Rol rol;
-	
+	@ManyToOne
+	@JoinColumn(name = "idONG")
+	public OngEmpresa ong;
 }
