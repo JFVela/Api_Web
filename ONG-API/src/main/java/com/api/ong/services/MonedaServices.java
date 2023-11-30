@@ -29,4 +29,8 @@ public class MonedaServices {
 		return repo.findById(cod).orElse(null);
 	}
 	
+	public void eliminar(Integer cod) {
+		repo.deleteById(cod);
+	}
+	
 }

@@ -3,6 +3,7 @@ package com.api.ong.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,4 +39,9 @@ public class MonedaController {
 	public Moneda buscar(@PathVariable("codi") Integer cod) {
 		return servicioMoneda.buscarPorCodigo(cod);
 	}
+	@DeleteMapping("/eliminar/{codi}")
+	public void eliminar(@PathVariable("codi") Integer cod) {
+		servicioMoneda.eliminar(cod);
+	}
+	
 }
