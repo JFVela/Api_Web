@@ -3,6 +3,9 @@ package com.api.ong.services;
 
 import com.api.ong.entity.Rol;
 import com.api.ong.repository.RolRepository;
+
+import Excepctios.mensajeError;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -27,18 +30,16 @@ public class RolServices {
 	}
 
 	public void eliminarRol(Integer id) {
-		if (verificarRolSinEmpleados(id)) {
-			try {
-				rolRepo.deleteById(id);
-			} catch (DataIntegrityViolationException e) {
-				throw new RuntimeException("No se puede eliminar el rol porque tiene empleados asociados.");
-
-			}
-		} else {
-			throw new RuntimeException("No se puede eliminar el rol porque tiene empleados asociados.");
-
-		}
-	}
+        if (verificarRolSinEmpleados(id)) {
+            try {
+                rolRepo.deleteById(id);
+            } catch (DataIntegrityViolationException e) {
+                throw new mensajeError("No se puede eliminar el rol porque tiene empleados asociados.");
+            }
+        } else {
+            throw new mensajeError("No se puede eliminar el rol porque tiene empleados asociados.");
+        }
+    }
 
 	public Rol buscarRolPorId(Integer id) {
 		return rolRepo.findById(id).orElse(null);

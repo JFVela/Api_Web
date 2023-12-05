@@ -3,7 +3,12 @@ package com.api.ong.controller;
 
 import com.api.ong.entity.Rol;
 import com.api.ong.services.RolServices;
+
+import Excepctios.mensajeError;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,8 +35,15 @@ public class RolController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public void eliminarRol(@PathVariable("id") Integer id) {
-        rolServices.eliminarRol(id);
+    public ResponseEntity<String> eliminarRol(@PathVariable Integer id) {
+        try {
+            rolServices.eliminarRol(id);
+            return new ResponseEntity<>("Rol eliminado con éxito", HttpStatus.OK);
+        } catch (mensajeError e) {
+            return new ResponseEntity<>("No se puede eliminar el Rol: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al procesar la solicitud", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/buscar/{id}")
